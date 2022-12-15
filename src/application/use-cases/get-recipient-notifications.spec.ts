@@ -1,4 +1,4 @@
-import { MakeNotification } from "@test/factories/notification-factory";
+import { makeNotification } from "@test/factories/notification-factory";
 import { InMemoryNotificationsRepository } from "@test/repositories/in-memory-notifications-repository";
 import { GetRecipientNotifications } from "./get-recipient-notifications";
 
@@ -10,15 +10,15 @@ describe("Get recipient notifications", () => {
     );
 
     await notificationsRepository.create(
-      MakeNotification({ recipientId: "recipient-1" })
+      makeNotification({ recipientId: "recipient-1" })
     );
 
     await notificationsRepository.create(
-      MakeNotification({ recipientId: "recipient-1" })
+      makeNotification({ recipientId: "recipient-1" })
     );
 
     await notificationsRepository.create(
-      MakeNotification({ recipientId: "recipient-2" })
+      makeNotification({ recipientId: "recipient-2" })
     );
 
     const { notifications } = await getRecipientNotifications.execute({
